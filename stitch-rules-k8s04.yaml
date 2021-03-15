@@ -2,13 +2,13 @@ kind: Rules
 metadata:
   namespace: k8s-freemarker
 spec:
-  - name: "k8s.AddFreemarkerLabels-02"
+  - name: "k8s.AddFreemarkerLabels-04"
     condition:
       deployedType: k8s.Resources
       expression: "#ctx.deployedApplication.environment.name == 'kubernetes-env'"
     processor:
       - type: freemarker
-        description: "Adding first label to kubernetes spec-updated by branch-04"
+        description: "Adding first label to kubernetes spec"
         phase: BASE_DEFINITION
         merge:
           type: overlay
@@ -16,7 +16,7 @@ spec:
           template: |
             { "metadata" : {
                "labels": {
-                 "overridenLabel-02": "initialValue-02"      
+                 "overridenLabel-04": "initialValue"      
                }
               }
             }
